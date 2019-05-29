@@ -1,0 +1,17 @@
+1、请列出Happens-before的几种规则
+   程序顺序规则，在单线程中，每一个操作happens before于任意的后续操作，遵循as-if-serial规则
+   volatile修饰的变量，写操作一定happens before 后续对于volatile变量的读操作？
+   传递性规则 A hanpens before B B hanpens before C A hanpens before c
+   线程A调用start方法前的操作，happens before 被start线程中的所有操作
+   join 方法，添加的线程成功返回，在该线程中执行的操作，一定对join之后的语句可见
+   synchronized释放锁之前的语句，一定在下一次获取锁之前执行
+
+2、volatile 能使得一个非原子操作变成原子操作吗？为什么？
+不能，volatile只能通过内存屏障保证线程对变量的可见性，以i++为例，从主内存中读取的i值，把i变成i+1,然后把i+1的值更新到主内存，从主内存读取i以后，volatile
+并不能保证这3个步骤实现原子操作，也就是在做自增的时候，不能确保i没有被其他线程所修改
+
+3、哪些场景适合使用Volatile
+线程之间的数据通信可以使用volatile,一个线程的停止，依赖另一个线程对某个变量的修改
+
+
+4、如果对一个数组修饰volatile，是否能够保证数组元素的修改对其他线程的可见？为什么？
