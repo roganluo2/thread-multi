@@ -1,6 +1,7 @@
 package com.thread.multi.lesson3;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Created by rogan on 2019/5/28.
@@ -23,5 +24,8 @@ public class VolatileDemo {
         stop = true;
 
     }
+
+
+
 
 }
