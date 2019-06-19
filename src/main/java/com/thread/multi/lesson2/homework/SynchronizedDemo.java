@@ -23,7 +23,6 @@ public class SynchronizedDemo implements Runnable {
             e.printStackTrace();
         }
         x = 2000;
-        System.out.println(Thread.currentThread().getName() +" x=" + x);
     }
     public static void main(String[] args) throws InterruptedException {
             SynchronizedDemo sd = new SynchronizedDemo();
@@ -32,6 +31,7 @@ public class SynchronizedDemo implements Runnable {
             sd.m2();
             System.out.println("Main x=" + sd.x);
     }
+
     @Override
     public void run() {
         m1();
@@ -42,6 +42,6 @@ public class SynchronizedDemo implements Runnable {
 x=1000
 Main x=2000
 thread1 thread2 main线程的执行m1 m2 方法都需要持有对象锁，任何一个线程先拿到对象锁，都可以先执行，
-如果main拿到对象锁，就输出2000，然后输出x=1000
+如果main拿到对象锁，就输出Main:x=2000，然后输出x=1000
 如果是thread1拿到对象锁，就输出x=1000,然后输出 main x= 2000
  */

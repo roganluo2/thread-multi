@@ -1,9 +1,6 @@
 package com.thread.multi.lesson5;
 
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 
 /**
  * Created by rogan on 2019/6/10.
@@ -24,6 +21,10 @@ public class CyclicBarrierDemo {
             System.out.println("开始导入"+path +"位置的数据");
             try {
                 cyclicBarrier.await(2, TimeUnit.SECONDS);
+                ConcurrentHashMap hashMap = new ConcurrentHashMap();
+                hashMap.put("22","2");
+                hashMap.get("22");
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (BrokenBarrierException e) {
